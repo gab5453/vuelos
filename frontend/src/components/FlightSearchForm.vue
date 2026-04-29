@@ -17,9 +17,17 @@ const isLoadingAirports = ref(true)
 onMounted(async () => {
   try {
     isLoadingAirports.value = true
-    // Intenta traer los aeropuertos reales del microservicio
+    
+    // 1. Obtienes los datos tal cual vienen de Azure (CamelCase)
     const data = await getAeropuertos()
-    airports.value = data
+    
+    // 2. Creas una copia de los datos pero añadiendo los nombres que tu HTML entiende
+    airports.value = data.map(airport => ({
+      ...airport,                             // Mantienes todo lo original (idAeropuerto, etc.)
+      id_aeropuerto: airport.idAeropuerto,    // Creas el "apodo" id_aeropuerto
+      codigo_iata: airport.codigoIata         // Creas el "apodo" codigo_iata
+    }))
+
   } catch (error) {
     console.error('Error al cargar aeropuertos:', error)
     airports.value = []
