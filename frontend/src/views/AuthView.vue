@@ -69,7 +69,7 @@ const handleRegister = async () => {
       nacionalidad: registerForm.value.nacionalidad,
       estado: 'ACT',
       username: registerForm.value.correo,  // Usamos su email como usuario
-      rol: 'CLIENTE',                       // Forzamos el rol seguro
+      nombreRol: 'CLIENTE',                       // Forzamos el rol seguro
       creadoPorUsuario: 'registro_web'      // Dato obligatorio para auditoría
     }
 
