@@ -44,7 +44,7 @@ onMounted(async () => {
 const handleLogin = async () => {
   try {
     await authStore.login({
-      email: loginForm.value.email,
+      username: loginForm.value.email,
       password: loginForm.value.password
     })
     router.push('/')

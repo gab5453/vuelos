@@ -31,6 +31,11 @@ export const useFlightStore = defineStore('flight', {
           fecha_hora_llegada: flight.fechaHoraLlegada,
           duracion_min: flight.duracionMin,
           estado_vuelo: flight.estadoVuelo,
+          
+          cantidad_escalas: flight.cantidadEscalas || 0,
+          numero_escalas: flight.numeroEscalas || 0,
+          escalas: flight.escalas || [],
+
           origen: {
             ...flight.origen,
             id_aeropuerto: flight.origen?.idAeropuerto,

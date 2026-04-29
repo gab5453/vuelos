@@ -13,8 +13,7 @@ export const login = async (credentials) => {
 
 export const register = async (userData) => {
   try {
-    // Consumiendo el endpoint de MÓDULO SEGURIDAD definido en el contrato
-    const response = await apiClient.post('/usuarios', userData)
+    const response = await apiClient.post('/auth/registro', userData)
     return response.data
   } catch (error) {
     console.error('Error en registro:', error)
