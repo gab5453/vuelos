@@ -2,12 +2,12 @@ import apiClient from './api'
 
 export const buscarVuelos = async (filtros) => {
   try {
-    // Parámetros según contrato (3.1)
+    // Parámetros ajustados al formato esperado por el backend en C# (PascalCase)
     const params = new URLSearchParams()
-    if (filtros.origin) params.append('id_aeropuerto_origen', filtros.origin)
-    if (filtros.destination) params.append('id_aeropuerto_destino', filtros.destination)
-    if (filtros.departureDate) params.append('fecha_salida', filtros.departureDate)
-    if (filtros.estado) params.append('estado_vuelo', filtros.estado || 'PROGRAMADO')
+    if (filtros.origin) params.append('IdAeropuertoOrigen', filtros.origin)
+    if (filtros.destination) params.append('IdAeropuertoDestino', filtros.destination)
+    if (filtros.departureDate) params.append('FechaSalida', filtros.departureDate)
+    if (filtros.estado) params.append('EstadoVuelo', filtros.estado || 'PROGRAMADO')
 
     const response = await apiClient.get(`/vuelos?${params.toString()}`)
     return response.data // El store ya maneja el desempaquetado de .data.items para búsquedas
