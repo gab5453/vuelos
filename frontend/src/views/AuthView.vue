@@ -68,6 +68,9 @@ const handleRegister = async () => {
       id_pais_nacionalidad: registerForm.value.id_pais_nacionalidad,
       nacionalidad: registerForm.value.nacionalidad,
       estado: 'ACT'
+      username: registerForm.value.correo,  // Usamos su email como usuario
+      rol: 'CLIENTE',                       // Forzamos el rol seguro
+      creadoPorUsuario: 'registro_web'      // Dato obligatorio para auditoría
     }
 
     await authStore.register(payload)
