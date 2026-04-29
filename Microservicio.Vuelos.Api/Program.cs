@@ -1,6 +1,9 @@
 using Microservicio.Vuelos.Api.Extensions;
 using Microservicio.Vuelos.Api.Middleware;
-
+using Microservicio.Vuelos.DataAccess.Repositories.Interfaces;
+using Microservicio.Vuelos.DataAccess.Repositories;
+using Microservicio.Vuelos.Business.Interfaces;
+using Microservicio.Vuelos.Business.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +37,9 @@ builder.Services.AddVuelosApplicationServices(builder.Configuration);
 builder.Services.AddVuelosExtraModules();
 // builder.Services.AddServiciosModule(builder.Configuration);
 
+// servicios pais para los vuelos
+builder.Services.AddScoped<IPaisRepository, PaisRepository>();
+builder.Services.AddScoped<IPaisService, PaisService>();
 // -------------------------------------------------------------------------
 // Pipeline HTTP
 // -------------------------------------------------------------------------
