@@ -1,0 +1,11 @@
+namespace Microservicio.Vuelos.DataManagement.Models.Vuelo;
+
+public class VueloFiltroDataModel
+{
+    public int IdAeropuertoOrigen { get; set; }
+    public int IdAeropuertoDestino { get; set; }
+    public DateTime FechaSalida { get; set; }
+    public string? EstadoVuelo { get; set; }
+    public int Page { get; set; } = 1;
+    public int PageSize { get; set; } = 20;
+}
